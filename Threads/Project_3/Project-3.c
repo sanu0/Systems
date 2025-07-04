@@ -4,10 +4,13 @@
 #include <unistd.h>
 
 
+
+int sharedCounter = 0; //shared variable (critical section)
+
 void* myThreadFunction(void* arg){
-    int* count = (int *)arg;
+    
     for(int i=0;i<100000;i++){
-        *count = *count + 1;
+        sharedCounter++;
     }
     printf("Thread Id : %ld is running.\n" , pthread_self());
     return NULL;
@@ -22,7 +25,7 @@ int main(){
 
 
     printf("Main thread : Spawning %d threads.\n", n);
-    int sharedCounter = 0;
+ 
     for(int i=0;i<n;i++){
 
         int rc = pthread_create(&threadArray[i] , NULL, myThreadFunction , (void *)&sharedCounter);
