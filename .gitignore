@@ -5,3 +5,8 @@
 # Ignore common default executable names
 a.out
 *.exe # For Windows executables if you ever compile them directly there
+
+
+# Explicitly ignoring the compiled files
+Threads/Project_2/project-2
+Threads/Project_1/project-1
