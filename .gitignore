@@ -1,0 +1,7 @@
+#Compiled-files are ignored
+# Ignore all object files (.o) anywhere in the repository
+*.o
+
+# Ignore common default executable names
+a.out
+*.exe # For Windows executables if you ever compile them directly there
