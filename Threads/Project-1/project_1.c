@@ -6,7 +6,7 @@ void* myThreadFunction(void* arg){
     pthread_t current_threadId = pthread_self();
     printf("Thread : Thread %lu is created and running ... \n", (unsigned long)current_threadId);
 
-    return NULL;
+    pthread_exit(NULL);
 }
 
 int main(){
@@ -21,7 +21,7 @@ int main(){
     for(int i=0;i<n;i++){
         int rc = pthread_create(&thread_array[i],NULL, myThreadFunction, NULL);
         if(rc){
-            printf("There is an error creating the thread.\n");
+            printf("There is an error while creating the thread.\n");
             return 1;
         }
         printf("Main Thread : Thread with ID %lu is created.\n",(unsigned long)thread_array[i]);
